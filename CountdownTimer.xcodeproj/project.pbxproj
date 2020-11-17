@@ -11,6 +11,9 @@
 		AE79B7942563560200C03799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79B7932563560200C03799 /* ViewController.swift */; };
 		AE79B7962563560400C03799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE79B7952563560400C03799 /* Assets.xcassets */; };
 		AE79B7992563560400C03799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE79B7972563560400C03799 /* Main.storyboard */; };
+		AE79B7A225636C2900C03799 /* bell_small_001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE79B7A125636C2900C03799 /* bell_small_001.mp3 */; };
+		AE79B7A52563FE5000C03799 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79B7A32563FE5000C03799 /* CustomTextField.swift */; };
+		AE79B7A62563FE5000C03799 /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE79B7A42563FE5000C03799 /* CustomTextField.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		AE79B7982563560400C03799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE79B79A2563560400C03799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE79B79B2563560400C03799 /* CountdownTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CountdownTimer.entitlements; sourceTree = "<group>"; };
+		AE79B7A125636C2900C03799 /* bell_small_001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell_small_001.mp3; sourceTree = "<group>"; };
+		AE79B7A32563FE5000C03799 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		AE79B7A42563FE5000C03799 /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +61,10 @@
 			children = (
 				AE79B7912563560200C03799 /* AppDelegate.swift */,
 				AE79B7932563560200C03799 /* ViewController.swift */,
+				AE79B7A32563FE5000C03799 /* CustomTextField.swift */,
+				AE79B7A42563FE5000C03799 /* CustomTextField.xib */,
 				AE79B7952563560400C03799 /* Assets.xcassets */,
+				AE79B7A125636C2900C03799 /* bell_small_001.mp3 */,
 				AE79B7972563560400C03799 /* Main.storyboard */,
 				AE79B79A2563560400C03799 /* Info.plist */,
 				AE79B79B2563560400C03799 /* CountdownTimer.entitlements */,
@@ -121,6 +130,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE79B7A62563FE5000C03799 /* CustomTextField.xib in Resources */,
+				AE79B7A225636C2900C03799 /* bell_small_001.mp3 in Resources */,
 				AE79B7962563560400C03799 /* Assets.xcassets in Resources */,
 				AE79B7992563560400C03799 /* Main.storyboard in Resources */,
 			);
@@ -135,6 +146,7 @@
 			files = (
 				AE79B7942563560200C03799 /* ViewController.swift in Sources */,
 				AE79B7922563560200C03799 /* AppDelegate.swift in Sources */,
+				AE79B7A52563FE5000C03799 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

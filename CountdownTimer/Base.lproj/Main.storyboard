@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CountdownTimer" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,10 +684,10 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="85"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -703,11 +704,214 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CountdownTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="OJY-5Q-bAW">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="145"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="jXG-po-iBh">
+                                <rect key="frame" x="35" y="61" width="180" height="52"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wxV-Cf-f21" customClass="CustomTextField" customModule="CountdownTimer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="2QD-rO-BMa"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="he4-V5-fbs">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <outlet property="delegate" destination="XfG-lQ-9wD" id="Aah-xW-aYN"/>
+                                        </connections>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4pu-Eu-2Qw">
+                                        <rect key="frame" x="73" y="31" width="16" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="M" id="V2K-Ju-cMr">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WGv-JQ-9vd">
+                                        <rect key="frame" x="141" y="31" width="13" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="S" id="YYT-ua-MeC">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-4W-fNc">
+                                        <rect key="frame" x="5" y="31" width="20" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="uPz-hR-zlX"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="H" id="fnO-xG-1aU">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qTn-5K-xKi" customClass="CustomTextField" customModule="CountdownTimer" customModuleProvider="target">
+                                        <rect key="frame" x="66" y="0.0" width="30" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Tx6-bm-0EY"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Kj3-N5-D71">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <outlet property="delegate" destination="XfG-lQ-9wD" id="DQD-mg-HeO"/>
+                                        </connections>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-4B-59y">
+                                        <rect key="frame" x="51" y="3" width="12" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title=":" id="SAu-nu-rli">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wVG-g9-h03">
+                                        <rect key="frame" x="117" y="3" width="12" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title=":" id="GwD-bO-i3f">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VLO-mf-Z4r">
+                                        <rect key="frame" x="98" y="-3" width="19" height="28"/>
+                                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="60" id="7hY-e7-p8S"/>
+                                        <connections>
+                                            <action selector="handleMinuteStepper:" target="XfG-lQ-9wD" id="Snb-BT-Zxy"/>
+                                        </connections>
+                                    </stepper>
+                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nvF-d8-1YZ">
+                                        <rect key="frame" x="32" y="-3" width="19" height="28"/>
+                                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="24" id="wQV-it-eUg"/>
+                                        <connections>
+                                            <action selector="handleHoursStepper:" target="XfG-lQ-9wD" id="Oof-9r-o14"/>
+                                        </connections>
+                                    </stepper>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Qh-va-Ncr" customClass="CustomTextField" customModule="CountdownTimer" customModuleProvider="target">
+                                        <rect key="frame" x="132" y="0.0" width="30" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="FJc-df-B6l"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="D5O-KE-Sup">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <outlet property="delegate" destination="XfG-lQ-9wD" id="7fm-Ai-xd4"/>
+                                        </connections>
+                                    </textField>
+                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pZr-44-ZiW">
+                                        <rect key="frame" x="164" y="-3" width="19" height="28"/>
+                                        <stepperCell key="cell" continuous="YES" alignment="left" increment="15" maxValue="60" id="jQH-aW-Sgt"/>
+                                        <connections>
+                                            <action selector="handleSecondsStepper:" target="XfG-lQ-9wD" id="JU7-wB-KuB"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4pu-Eu-2Qw" firstAttribute="centerY" secondItem="gYg-4W-fNc" secondAttribute="centerY" id="0yT-Q3-mZb"/>
+                                    <constraint firstItem="wVG-g9-h03" firstAttribute="leading" secondItem="VLO-mf-Z4r" secondAttribute="trailing" constant="5" id="AIT-GO-6io"/>
+                                    <constraint firstItem="pZr-44-ZiW" firstAttribute="centerY" secondItem="7Qh-va-Ncr" secondAttribute="centerY" id="CIj-R9-kDg"/>
+                                    <constraint firstAttribute="bottom" secondItem="wxV-Cf-f21" secondAttribute="bottom" id="CNB-SZ-OKH"/>
+                                    <constraint firstItem="wVG-g9-h03" firstAttribute="centerY" secondItem="wxV-Cf-f21" secondAttribute="centerY" id="EID-gD-4c7"/>
+                                    <constraint firstItem="WGv-JQ-9vd" firstAttribute="centerY" secondItem="gYg-4W-fNc" secondAttribute="centerY" id="FKS-c8-PYU"/>
+                                    <constraint firstItem="7Qh-va-Ncr" firstAttribute="centerY" secondItem="nvF-d8-1YZ" secondAttribute="centerY" id="Fot-Af-gNu"/>
+                                    <constraint firstItem="wxV-Cf-f21" firstAttribute="centerX" secondItem="gYg-4W-fNc" secondAttribute="centerX" id="Gbl-sP-c3V"/>
+                                    <constraint firstItem="pZr-44-ZiW" firstAttribute="leading" secondItem="7Qh-va-Ncr" secondAttribute="trailing" constant="5" id="I2Q-Oq-h1L"/>
+                                    <constraint firstItem="nvF-d8-1YZ" firstAttribute="leading" secondItem="wxV-Cf-f21" secondAttribute="trailing" constant="5" id="NYs-7N-YEo"/>
+                                    <constraint firstItem="pZr-44-ZiW" firstAttribute="centerY" secondItem="nvF-d8-1YZ" secondAttribute="centerY" id="Og3-M1-OqA"/>
+                                    <constraint firstItem="XFd-4B-59y" firstAttribute="leading" secondItem="nvF-d8-1YZ" secondAttribute="trailing" constant="5" id="PTI-jF-Bhy"/>
+                                    <constraint firstItem="4pu-Eu-2Qw" firstAttribute="centerX" secondItem="qTn-5K-xKi" secondAttribute="centerX" id="Rrq-kb-H2s"/>
+                                    <constraint firstAttribute="width" constant="180" id="Vsb-1M-1Ql"/>
+                                    <constraint firstItem="wxV-Cf-f21" firstAttribute="top" secondItem="gYg-4W-fNc" secondAttribute="bottom" constant="10" id="XMg-u8-roj"/>
+                                    <constraint firstItem="wxV-Cf-f21" firstAttribute="leading" secondItem="jXG-po-iBh" secondAttribute="leading" id="c0f-Ea-OXm"/>
+                                    <constraint firstItem="VLO-mf-Z4r" firstAttribute="centerY" secondItem="nvF-d8-1YZ" secondAttribute="centerY" id="iDr-eB-SeJ"/>
+                                    <constraint firstItem="7Qh-va-Ncr" firstAttribute="leading" secondItem="wVG-g9-h03" secondAttribute="trailing" constant="5" id="oNh-KT-8e9"/>
+                                    <constraint firstItem="qTn-5K-xKi" firstAttribute="centerY" secondItem="nvF-d8-1YZ" secondAttribute="centerY" id="qxk-Hq-gwO"/>
+                                    <constraint firstItem="XFd-4B-59y" firstAttribute="centerY" secondItem="nvF-d8-1YZ" secondAttribute="centerY" id="rUq-Cq-JP9"/>
+                                    <constraint firstItem="WGv-JQ-9vd" firstAttribute="centerX" secondItem="7Qh-va-Ncr" secondAttribute="centerX" id="sxV-fm-LH1"/>
+                                    <constraint firstItem="qTn-5K-xKi" firstAttribute="leading" secondItem="XFd-4B-59y" secondAttribute="trailing" constant="5" id="uTX-0J-QKe"/>
+                                    <constraint firstItem="VLO-mf-Z4r" firstAttribute="centerY" secondItem="qTn-5K-xKi" secondAttribute="centerY" id="ur4-7I-6sb"/>
+                                    <constraint firstItem="VLO-mf-Z4r" firstAttribute="leading" secondItem="qTn-5K-xKi" secondAttribute="trailing" constant="5" id="uun-CE-jmQ"/>
+                                    <constraint firstAttribute="height" constant="52" id="xQE-2k-vPR"/>
+                                    <constraint firstItem="nvF-d8-1YZ" firstAttribute="centerY" secondItem="wxV-Cf-f21" secondAttribute="centerY" id="yNs-WJ-GvV"/>
+                                </constraints>
+                            </customView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDJ-oe-jsg">
+                                <rect key="frame" x="55" y="20" width="141" height="21"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BK4-t7-6Cm">
+                                        <rect key="frame" x="-6" y="-7" width="70" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="57M-zT-htt">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="handleStartPauseButton:" target="XfG-lQ-9wD" id="NDr-6g-ZRI"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PAt-dy-sNH">
+                                        <rect key="frame" x="72" y="-7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WEM-re-hP2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="handleResetButton:" target="XfG-lQ-9wD" id="kQr-CV-Pei"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zg1-mQ-OPk">
+                                <rect key="frame" x="75" y="113" width="100" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6bO-vA-je4"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="border" alignment="center" id="nkL-rm-Ttk">
+                                    <font key="font" metaFont="system" size="16"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="zg1-mQ-OPk" firstAttribute="centerX" secondItem="OJY-5Q-bAW" secondAttribute="centerX" id="8aX-m1-hth"/>
+                            <constraint firstItem="vDJ-oe-jsg" firstAttribute="centerX" secondItem="jXG-po-iBh" secondAttribute="centerX" id="DKJ-Hw-Uxj"/>
+                            <constraint firstItem="vDJ-oe-jsg" firstAttribute="centerX" secondItem="OJY-5Q-bAW" secondAttribute="centerX" id="SbV-Kj-58F"/>
+                            <constraint firstAttribute="bottom" secondItem="vDJ-oe-jsg" secondAttribute="bottom" constant="20" id="eG9-HW-nz4"/>
+                            <constraint firstItem="jXG-po-iBh" firstAttribute="top" secondItem="zg1-mQ-OPk" secondAttribute="bottom" id="ihq-XA-4OX"/>
+                            <constraint firstItem="vDJ-oe-jsg" firstAttribute="top" secondItem="jXG-po-iBh" secondAttribute="bottom" constant="20" id="nDK-pf-wRK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hoursField" destination="wxV-Cf-f21" id="XnR-te-qS6"/>
+                        <outlet property="hoursStepper" destination="nvF-d8-1YZ" id="5bg-Zv-kHC"/>
+                        <outlet property="minutesField" destination="qTn-5K-xKi" id="JgR-m5-RVE"/>
+                        <outlet property="minutesStepper" destination="VLO-mf-Z4r" id="Kh3-bk-P3o"/>
+                        <outlet property="secondsField" destination="7Qh-va-Ncr" id="050-n2-gs5"/>
+                        <outlet property="secondsStepper" destination="pZr-44-ZiW" id="Vdn-us-mMe"/>
+                        <outlet property="startButton" destination="BK4-t7-6Cm" id="cXi-Ld-Agp"/>
+                        <outlet property="totalTimeField" destination="zg1-mQ-OPk" id="gJg-dM-8pC"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
