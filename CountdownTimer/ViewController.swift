@@ -3,14 +3,21 @@
 //  CountdownTimer
 //
 //  Created by Duncan Champney on 11/16/20.
-//  Copyright © 2020 Duncan Champney. All rights reserved.
+//  Created by Duncan Champney on 11/16/20.
+//  Copyright © 2020 Duncan Champney.
+//  Licensed under the MIT Open source license:
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Cocoa
 import AVFoundation
 
 class ViewController: NSViewController {
 
+    static var viewController: ViewController? = nil
     @IBOutlet weak var totalTimeField: NSTextField!
 
     @IBOutlet weak var hoursField: NSTextField!
@@ -20,8 +27,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var hoursStepper: NSStepper!
     @IBOutlet weak var minutesStepper: NSStepper!
     @IBOutlet weak var secondsStepper: NSStepper!
+    @IBOutlet weak var floatCheckbox: NSButton!
 
     @IBOutlet weak var startButton: NSButton!
+
+    var floatWindow: Bool = false {
+        didSet {
+            setFloatingWindow(floatWindow)
+
+        }
+    }
 
     weak var timer: Timer? = nil {
         didSet {
@@ -76,18 +91,31 @@ class ViewController: NSViewController {
             calcTime()
         }
     }
+
+    public func toggleFloatWindow() {
+        floatWindow = !floatWindow
+    }
+
     func calcTime() {
         timeRemaining = Double(hours * 3600 + minutes * 60 + seconds)
     }
 
     override func viewDidLoad() {
-        view.wantsLayer = true
         super.viewDidLoad()
+        ViewController.viewController = self
+        view.wantsLayer = true
         hours = 0
         minutes = 2
         seconds = 0
+    }
 
-        // Do any additional setup after loading the view.
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        guard let panel = view.window as? NSPanel else {
+            print("Not a panel")
+            return
+        }
+        panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
     }
 
     func resignFirstResponders() {
@@ -125,6 +153,21 @@ class ViewController: NSViewController {
             timer = nil
         }
     }
+    func setFloatingWindow(_ float: Bool) {
+        print("float = \(float)")
+        guard let panel = view.window as? NSPanel else {
+            print("Not a panel")
+            return
+        }
+        if float {
+            floatCheckbox.state = .on
+            panel.level = .mainMenu
+            panel.orderFrontRegardless()
+        } else {
+            panel.level = .normal
+            floatCheckbox.state = .off
+        }
+    }
 
     @IBAction func handleResetButton(_ sender: Any) {
         resignFirstResponders()
@@ -139,6 +182,20 @@ class ViewController: NSViewController {
     }
     @IBAction func handleSecondsStepper(_ sender: NSStepper) {
         seconds = sender.integerValue
+    }
+    @IBAction func handleFloatCheckbox(_ sender: NSButton) {
+        switch sender.state {
+
+        case .on:
+            print("on")
+            floatWindow = true
+        case .off:
+            print("off")
+            floatWindow = false
+
+        default:
+            print("Unknown switch state")
+        }
     }
     override var representedObject: Any? {
         didSet {

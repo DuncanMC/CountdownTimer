@@ -1,7 +1,8 @@
 //
-//  AppDelegate.swift
+//  PanelWindowController.swift
 //  CountdownTimer
 //
+//  Created by Duncan Champney on 11/17/20.
 //  Created by Duncan Champney on 11/16/20.
 //  Copyright © 2020 Duncan Champney.
 //  Licensed under the MIT Open source license:
@@ -11,36 +12,20 @@
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 import Cocoa
 
-@NSApplicationMain
-@objc class AppDelegate: NSObject, NSApplicationDelegate {
+class PanelWindowController: NSWindowController {
 
-    @objc dynamic var floatWindow: Bool = true
-
-    @objc func validateMenuItem(_ item: NSMenuItem ) -> Bool {
-
-        if item.action == #selector(floatTimerWindow(_:)) {
-            item.state = (ViewController.viewController?.floatWindow ?? false) ? .on : .off
-            return true
-        } else {
-            return false
+    override func windowDidLoad() {
+        super.windowDidLoad()
+        guard let panel = window as? NSPanel else {
+            print("Not a panel")
+            return
         }
-    }
+        panel.level = .mainMenu
+        panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        panel.orderFrontRegardless()
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-    @IBAction func floatTimerWindow(_ sender: Any?) {
-        print("in \(#function)")
-        ViewController.viewController?.toggleFloatWindow()
-    }
-
+    
 }
-
