@@ -791,14 +791,14 @@
                                     </textField>
                                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VLO-mf-Z4r">
                                         <rect key="frame" x="98" y="-3" width="19" height="28"/>
-                                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="60" id="7hY-e7-p8S"/>
+                                        <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="60" id="7hY-e7-p8S"/>
                                         <connections>
                                             <action selector="handleMinuteStepper:" target="XfG-lQ-9wD" id="Snb-BT-Zxy"/>
                                         </connections>
                                     </stepper>
                                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nvF-d8-1YZ">
                                         <rect key="frame" x="32" y="-3" width="19" height="28"/>
-                                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="24" id="wQV-it-eUg"/>
+                                        <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" maxValue="24" id="wQV-it-eUg"/>
                                         <connections>
                                             <action selector="handleHoursStepper:" target="XfG-lQ-9wD" id="Oof-9r-o14"/>
                                         </connections>
@@ -819,7 +819,7 @@
                                     </textField>
                                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pZr-44-ZiW">
                                         <rect key="frame" x="164" y="-3" width="19" height="28"/>
-                                        <stepperCell key="cell" continuous="YES" alignment="left" increment="15" maxValue="60" id="jQH-aW-Sgt"/>
+                                        <stepperCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" increment="15" maxValue="60" id="jQH-aW-Sgt"/>
                                         <connections>
                                             <action selector="handleSecondsStepper:" target="XfG-lQ-9wD" id="JU7-wB-KuB"/>
                                         </connections>
@@ -855,23 +855,28 @@
                                 </constraints>
                             </customView>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDJ-oe-jsg">
-                                <rect key="frame" x="55" y="40" width="141" height="21"/>
+                                <rect key="frame" x="38" y="40" width="174" height="21"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BK4-t7-6Cm">
                                         <rect key="frame" x="-6" y="-7" width="70" height="32"/>
                                         <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="57M-zT-htt">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                         </buttonCell>
                                         <connections>
                                             <action selector="handleStartPauseButton:" target="XfG-lQ-9wD" id="NDr-6g-ZRI"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PAt-dy-sNH">
-                                        <rect key="frame" x="72" y="-7" width="75" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WEM-re-hP2">
+                                        <rect key="frame" x="72" y="-7" width="108" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Reset (⌘R)" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WEM-re-hP2">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">r</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="handleResetButton:" target="XfG-lQ-9wD" id="kQr-CV-Pei"/>

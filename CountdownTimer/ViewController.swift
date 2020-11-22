@@ -72,7 +72,6 @@ class ViewController: NSViewController {
         didSet {
             hoursStepper.integerValue = hours
             hoursField.stringValue = String(format: "%02d", hoursStepper.integerValue)
-            calcTime()
         }
     }
 
@@ -80,7 +79,6 @@ class ViewController: NSViewController {
         didSet {
             minutesStepper.integerValue = minutes
             minutesField.stringValue = String(format: "%02d", minutesStepper.integerValue)
-            calcTime()
         }
     }
 
@@ -88,7 +86,6 @@ class ViewController: NSViewController {
         didSet {
             secondsStepper.integerValue = seconds
             secondsField.stringValue = String(format: "%02d", secondsStepper.integerValue)
-            calcTime()
         }
     }
 
@@ -96,17 +93,33 @@ class ViewController: NSViewController {
         floatWindow = !floatWindow
     }
 
+    func saveHMS() {
+        let defaults = UserDefaults.standard
+        defaults.set(hours, forKey: "hours")
+        defaults.set(minutes, forKey: "minutes")
+        defaults.set(seconds, forKey: "seconds")
+    }
+
+    func loadHMS() {
+        let defaults = UserDefaults.standard
+        hours = defaults.integer(forKey: "hours")
+        minutes = defaults.integer(forKey: "minutes")
+        seconds = defaults.integer(forKey: "seconds")
+    }
+
     func calcTime() {
         timeRemaining = Double(hours * 3600 + minutes * 60 + seconds)
+        saveHMS()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.register(defaults: ["hours": 0,
+                                                  "minutes": 2,
+                                                  "seconds": 0])
+        loadHMS()
         ViewController.viewController = self
         view.wantsLayer = true
-        hours = 0
-        minutes = 2
-        seconds = 0
     }
 
     override func viewDidAppear() {
@@ -119,9 +132,10 @@ class ViewController: NSViewController {
     }
 
     func resignFirstResponders() {
-        hoursField.resignFirstResponder()
-        minutesField.resignFirstResponder()
-        secondsField.resignFirstResponder()
+        view.window?.makeFirstResponder(startButton)
+//        hoursField.resignFirstResponder()
+//        minutesField.resignFirstResponder()
+//        secondsField.resignFirstResponder()
         hours = Int(hoursField.stringValue) ?? 0
         minutes = Int(minutesField.stringValue) ?? 0
         seconds = Int(secondsField.stringValue) ?? 0
@@ -173,6 +187,7 @@ class ViewController: NSViewController {
         resignFirstResponders()
         calcTime()
     }
+
     @IBAction func handleHoursStepper(_ sender: NSStepper) {
         hours = sender.integerValue
     }
