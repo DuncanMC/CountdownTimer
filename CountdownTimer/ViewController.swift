@@ -34,7 +34,7 @@ class ViewController: NSViewController {
     var floatWindow: Bool = false {
         didSet {
             setFloatingWindow(floatWindow)
-
+            UserDefaults.standard.set(floatWindow, forKey: "floatWindow")
         }
     }
 
@@ -116,10 +116,16 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         UserDefaults.standard.register(defaults: ["hours": 0,
                                                   "minutes": 2,
-                                                  "seconds": 0])
+                                                  "seconds": 0,
+                                                  "floatWindow": false])
         loadHMS()
         ViewController.viewController = self
         view.wantsLayer = true
+        calcTime()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.floatWindow = UserDefaults.standard.bool(forKey: "floatWindow")
+            self.view.window?.makeFirstResponder(self.minutesField)
+        }
     }
 
     override func viewDidAppear() {
@@ -133,9 +139,6 @@ class ViewController: NSViewController {
 
     func resignFirstResponders() {
         view.window?.makeFirstResponder(startButton)
-//        hoursField.resignFirstResponder()
-//        minutesField.resignFirstResponder()
-//        secondsField.resignFirstResponder()
         hours = Int(hoursField.stringValue) ?? 0
         minutes = Int(minutesField.stringValue) ?? 0
         seconds = Int(secondsField.stringValue) ?? 0
@@ -168,7 +171,6 @@ class ViewController: NSViewController {
         }
     }
     func setFloatingWindow(_ float: Bool) {
-        print("float = \(float)")
         guard let panel = view.window as? NSPanel else {
             print("Not a panel")
             return
@@ -202,10 +204,8 @@ class ViewController: NSViewController {
         switch sender.state {
 
         case .on:
-            print("on")
             floatWindow = true
         case .off:
-            print("off")
             floatWindow = false
 
         default:

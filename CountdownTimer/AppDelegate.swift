@@ -38,7 +38,6 @@ import Cocoa
     }
 
     @IBAction func floatTimerWindow(_ sender: Any?) {
-        print("in \(#function)")
         ViewController.viewController?.toggleFloatWindow()
     }
 

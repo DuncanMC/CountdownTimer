@@ -46,8 +46,7 @@
                                                 <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Float timer above other windows" id="1dY-bZ-7Tn">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Float timer above other windows" keyEquivalent="f" id="1dY-bZ-7Tn">
                                             <connections>
                                                 <action selector="floatTimerWindow:" target="Voe-Tx-rLC" id="FJy-45-6pG"/>
                                             </connections>
@@ -903,11 +902,13 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-rz-9F6">
-                                <rect key="frame" x="33" y="13" width="184" height="14"/>
-                                <buttonCell key="cell" type="check" title="Float above other windows" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mTC-zz-IEk">
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-rz-9F6">
+                                <rect key="frame" x="17" y="13" width="217" height="18"/>
+                                <buttonCell key="cell" type="check" title="Float above other windows (⌘F)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mTC-zz-IEk">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">f</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="handleFloatCheckbox:" target="XfG-lQ-9wD" id="tmK-xk-Tj1"/>
